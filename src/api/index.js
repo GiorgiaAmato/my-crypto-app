@@ -12,7 +12,8 @@ export const getPing = () => {
 }
 
 export const getCoinMarkets = (params) => {
-  return axios.get(ENDPOINTS.MARKETS + '?vs_currency=eur&order=market_cap_desc&per_page=20&page=1&sparkline=false')
+  //'?vs_currency=eur&order=market_cap_desc&per_page=20&page=1&sparkline=false'
+  return axios.get(ENDPOINTS.MARKETS, { params })
     .then(res => {
       return res
     })

@@ -24,11 +24,8 @@ const ORDER_SELECT_ITEMS =
 
 
 
-export default function FilterMenu(props) {
+export default function FilterMenu({order, category, itemPerPage, handleChange, fetchCoin, resetFilters }) {
 
-  const [order, setOrder] = useState('market_cap_desc')
-  const [category, setCategory] = useState('')
-  const [itemPerPage, setItemPerPage] = useState('25')
   const [categoryList, setCategoryList] = useState([])
 
   const fetchCategoryList = async () => {
@@ -38,11 +35,7 @@ export default function FilterMenu(props) {
 
   useEffect( () => {
     fetchCategoryList()
-  }, [])
-
-  const handleChange = () => {
-
-  }
+  }, []);
 
 
   return (
@@ -62,8 +55,9 @@ export default function FilterMenu(props) {
               <Select
                 labelId="order-select"
                 value={order}
-                onChange={(e) => setOrder(e.target.value)}
+                onChange={handleChange}
                 label="Order"
+                name='order'
               >
                 {
                   ORDER_SELECT_ITEMS.map((el, i) => <MenuItem key={i} value={el.value}>{el.label}</MenuItem>)
@@ -78,8 +72,9 @@ export default function FilterMenu(props) {
               <Select
                 labelId="category-select"
                 value={category}
-                onChange={ (e) => setCategory(e.target.value)}
+                onChange={handleChange}
                 label="Category"
+                name='category'
               >
                 {
                   categoryList.map((el, i) => <MenuItem key={i} value={el.category_id}>{el.name}</MenuItem>)
@@ -94,8 +89,9 @@ export default function FilterMenu(props) {
               <Select
                 labelId="item-per-page"
                 value={itemPerPage}
-                onChange={(e) => setItemPerPage(e.target.value)}
+                onChange={handleChange}
                 label="Item per page"
+                name='itemPerPage'
               >
                 {
                   ITEM_PER_PAGE_SELECT_ITEMS.map((el, i) => <MenuItem key={i} value={el}>{el}</MenuItem>)
@@ -107,10 +103,8 @@ export default function FilterMenu(props) {
         </AccordionDetails>
         <Divider />
         <AccordionActions>
-          <Button variant="outlined" size="small">Reset filters</Button>
-          <Button variant="contained" size="small" color="primary">
-            Apply filters
-          </Button>
+          <Button variant="outlined" size="small" onClick={resetFilters}>Reset filters</Button>
+          <Button onClick = {fetchCoin} variant="contained" size="small" color="primary">Apply filters</Button>
         </AccordionActions>
       </Accordion>
   )
