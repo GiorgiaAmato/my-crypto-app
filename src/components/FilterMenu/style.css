@@ -1,6 +1,10 @@
-.MuiAccordionSummary-content{
+.MuiAccordionDetails-root {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-
+.MuiGrid-item,
+.MuiFormControl-root {
+    width: 95% !important;
+    margin-bottom: 10px !important;
+}
