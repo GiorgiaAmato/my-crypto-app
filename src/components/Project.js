@@ -1,8 +1,7 @@
-import { Grid } from '@material-ui/core';
+
 import React from 'react';
 import {getPing, getCoinMarkets} from '../api/index'
-import CoinCard from './CoinCard'
-import FilterMenu from './FilterMenu';
+import { BrowserRouter as Router,  Switch, Route, Link } from "react-router-dom";
 
 
 const INITIAL_STATE = {
@@ -59,21 +58,38 @@ export default class Project extends React.Component {
 
   render() {
     return (
-      <Grid container spacing ={3}>
-        <Grid item xs={12}>
-          <FilterMenu resetFilters={this.resetFilters} fetchCoin={this.fetchCoinMarket} order={this.state.order} itemPerPage={this.state.itemPerPage} category={this.state.category} handleChange={this.handleChange}/>
-        </Grid>
-        
-        {
-          this.state.coins.map(coin => {
-            return (
-              <Grid key={coin.id} item xs={12} md={6} lg={3}>
-                <CoinCard {...coin} />
-              </Grid>
-            );
-          })
-        }
-      </Grid>
+      <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/"> </Link>
+            </li>
+            <li>
+              <Link to="/"> </Link>
+            </li>
+            <li>
+              <Link to="/"> </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/">
+
+          </Route>
+          <Route path="/">
+
+          </Route>
+          <Route path="/">
+
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+
+
+
     )
   }
 }
