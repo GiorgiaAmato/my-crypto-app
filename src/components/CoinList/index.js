@@ -19,7 +19,12 @@ class CoinList extends React.Component {
     super(props);
     this.state = {
       ...INITIAL_STATE,
-    };
+    }
+    console.log(props)
+  }
+
+  getCoinDetail = (id) => {
+    this.props.history.push(`/coins/${id}`)
   }
 
   fetchCoinMarket = async () => {
@@ -81,7 +86,7 @@ class CoinList extends React.Component {
         {this.state.coins.map((coin) => {
           return (
             <Grid key={coin.id} item xs={12} md={6} lg={3}>
-              <CoinCard {...coin} />
+              <CoinCard {...coin} getCoinDetail={this.getCoinDetail} />
             </Grid>
           );
         })}
