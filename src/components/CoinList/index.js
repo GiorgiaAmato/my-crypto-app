@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from '@material-ui/core';
-import { CoinCard } from '..CoinCard/CoinCard'
-import { FilterMenu } from '..FilterMenu/FilterMenu'
+import  CoinCard from '../CoinCard/index'
+import FilterMenu from '../FilterMenu/index'
 import { getCoinMarkets } from "../../api/index";
 
 const INITIAL_STATE = {
@@ -24,7 +24,7 @@ class CoinList extends React.Component {
 
   fetchCoinMarket = async () => {
     const {
-      coins,
+      //coins,
       category,
       itemPerPage,
       order,
