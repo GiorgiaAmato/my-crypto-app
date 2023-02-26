@@ -6,21 +6,23 @@ import "./style.css";
 
 const CoinDetail = () => {
     const { coinId } = useParams();
-    console.log('coinId', coinId);
     const [ coin, setCoin ] = useState();
+
     const fetchCoinDetail = async (id) => {
         const res = await getCoinDetail(id);
         console.log('res coindetail', res);
         setCoin(res.data);
     };
 
-    useEffect(() => {
+    useEffect((
+      
+    ) => {
       fetchCoinDetail(coinId);
     }, [coinId]);
 
     return (
       <div className="container-detail">
-        <h1>{}</h1>
+        <h1>{console.log()}</h1>
       </div>
     );
 };
