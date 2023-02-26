@@ -20,7 +20,7 @@ class CoinList extends React.Component {
     this.state = {
       ...INITIAL_STATE,
     }
-    console.log(props)
+    console.log('props coinlist', props)
   }
 
   getCoinDetail = (id) => {
@@ -29,7 +29,7 @@ class CoinList extends React.Component {
 
   fetchCoinMarket = async () => {
     const {
-      //coins,
+      coins,
       category,
       itemPerPage,
       order,

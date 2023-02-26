@@ -1,0 +1,10 @@
+.container-detail {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    color: black;
+}
+
+h1 {
+    text-align: center!important;
+}

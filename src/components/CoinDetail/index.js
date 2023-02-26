@@ -1,15 +1,17 @@
 import React, {useEffect, useState} from 'react'
 import { getCoinDetail } from '../../api'
 import { useParams } from 'react-router-dom';
+import "./style.css";
 
-export default function CoinDetail() {
+
+const CoinDetail = () => {
     const { coinId } = useParams();
-    console.log(coinId);
+    console.log('coinId', coinId);
     const [ coin, setCoin ] = useState();
     const fetchCoinDetail = async (id) => {
         const res = await getCoinDetail(id);
-        console.log(res)
-        setCoin(res.data)
+        console.log('res coindetail', res);
+        setCoin(res.data);
     };
 
     useEffect(() => {
@@ -17,8 +19,10 @@ export default function CoinDetail() {
     }, [coinId]);
 
     return (
-      <div>
-        <h1>{res.data}</h1>
+      <div className="container-detail">
+        <h1>{}</h1>
       </div>
     );
 };
+
+export default CoinDetail;

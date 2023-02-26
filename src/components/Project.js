@@ -14,7 +14,7 @@ class Project extends React.Component {
         <Switch>
           <Route path="/" render={(props) => <CoinList {...props} />} exact />
           <Route path="/coins/:coinId">
-            <CoinDetail/>
+            <CoinDetail />
           </Route>
         </Switch>
       </Router>

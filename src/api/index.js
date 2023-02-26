@@ -22,19 +22,9 @@ export const getCoinMarkets = (params) => {
     })
 }
 
-export const getCategoryList  = () => {
-  return axios.get(ENDPOINTS.CATEGORY_LIST)
-    .then(res => {
-      return res
-    })
-    .catch(err => {
-      console.log(err)
-    })
-}
-
-export const getCoinDetail = (id) => {
+export const getCategoryList = () => {
   return axios
-    .get(`${ENDPOINTS.COIN_DETAIL}/${id}?localization=false`)
+    .get(ENDPOINTS.CATEGORY_LIST)
     .then((res) => {
       return res;
     })
@@ -42,3 +32,18 @@ export const getCoinDetail = (id) => {
       console.log(err);
     });
 };
+
+export const getCoinDetail = (id) => {
+  return axios
+    .get(`${ENDPOINTS.COIN_DETAIL}/${id}`)
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+
+
+
